@@ -40,20 +40,14 @@
 //   \\                                                                    \\\\
 //
 //
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    // self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    // UIBarButtonItem *searchButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(insertNewObject:)] autorelease];
+    
     UIBarButtonItem *searchButton           = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonClicked)] autorelease];
     
     self.navigationItem.rightBarButtonItem = searchButton;
 }
-
-
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -65,8 +59,6 @@
     }
     return self;
 }
-
-
 
 
 - (void)insertNewObject:(id)sender
@@ -82,14 +74,12 @@
 
 
 
-
 // Load ModalView as initial view on start up
 -(void)viewWillAppear:(BOOL)animated
 {
     if (startedBefore == NO) {[self loadTwitterAddViewController:self];} startedBefore = YES;
     // [_newsTable reloadData];
 }
-
 
 
 
@@ -247,18 +237,11 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
  
- /*    
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
-    return cell;
-*/  
     // Set up the cell
 	int tweetIndex          = [indexPath indexAtPosition: [indexPath length] - 1];
 	cell.textLabel.text     = [[tweets objectAtIndex: tweetIndex] objectForKey: @"pubDate"];
     
 	return cell;
- 
- 
 }
 
 
@@ -268,7 +251,9 @@
     // Return NO if you do not want the specified item to be editable.
     return NO;
 }
-    
+
+
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
@@ -368,8 +353,6 @@
 //   \\                                                                    \\\\
 //
 //
-
-
 - (void)dealloc
 {
     [_detailViewController      release];

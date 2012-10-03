@@ -125,13 +125,6 @@
 
 
 
-
-
-
-
-
-
-
 //
 //
 //   //                                                                    ////
@@ -141,12 +134,10 @@
 //   \\                                                                    \\\\
 //
 //
-
 - (void)dealloc {
     [_textUserName release];
     [super dealloc];
 }
-
 
 
 - (void)didReceiveMemoryWarning
@@ -154,8 +145,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 
 
